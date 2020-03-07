@@ -10,35 +10,36 @@
   crossorigin=""/>
 <style>
 
-#mapid { height: 190px; }
+#mapid { height: 250px; }
 
 </style>
   <title>Document</title>
   </head>
   <body>
 
-    <script>
+  <script>
+
     if ("geolocation" in navigator) {
       console.log('geolocation is available');
       navigator.geolocation.getCurrentPosition(position => {
-      console.log(position);
-      const lat = position.coords.latitude;
-      const long = position.coords.longitude;
-      document.getElementById('latitude').textContent = lat;
-      document.getElementById('longitude').textContent = long;
+        console.log(position);
+        const lat = position.coords.latitude;
+        const long = position.coords.longitude;
+        document.getElementById('latitude').textContent = lat;
+        document.getElementById('longitude').textContent = long;
       });
     } else {
-    console.log('geolocation IS NOT available');
+      console.log('geolocation IS NOT available');
     }
-
-
 
 
 
     </script>
 
 
-    <h1>Data Selfie App</h1>
+
+
+    <h1>Geolocation</h1>
 
     <p>
       latitude: <span id="latitude"></span>&deg;</br>
@@ -46,17 +47,31 @@
     </p>
 
      <div id="mapid"></div>
-      initialize the map on the "map" div with a given center and zoom
+      Need to figure out how to include the users geolocation into the leaflet map api!
 
     <script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"
       integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
       crossorigin="">
     </script>
 
+
+
     <script>
 
-    var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    var mymap = L.map('mapid').setView([40.7241735, -73.9918984], 13);
+    var marker = L.marker([40.7241735, -73.9918984]).addTo(mymap); /*adding markers of my location to the code
+    even though I still have to fix where the maps location is since by default its Long*/
+    marker.bindPopup("<b>Found You!</b><br>I am your location.").openPopup();
 
+//=================================================================================================================================
+
+//NOT USING THIS VERSION OF THE ICON POP UP (HIDES THE ICON LAYER)
+    // var popup = L.popup()
+    // .setLatLng([51.5, -0.09])
+    // .setContent("I am a standalone popup.")
+    // .openOn(mymap);
+    //var latlng = L.latLng(position.coords.latitude, position.coords.longitude);
+//================================================================================================================================
 
     L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={myAccessToken}', {
       attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
@@ -67,14 +82,9 @@
       myAccessToken: 'pk.eyJ1IjoiYmFiNjE5IiwiYSI6ImNrN2kwN2ZudTBmcWwzZW84ZHRtZDQzNXcifQ.LhhtDEYetalJbQ8KkdEyjA'
     }).addTo(mymap);
 
-
-
-     // const container = document.getElementById('mapid')
-     // if(container) {
-     //  // code to render map here...
-     //   var mymap = L.map('mapid').setView([51.505, -0.09], 13);
-     // }
      </script>
+
+
 
 
   </body>
