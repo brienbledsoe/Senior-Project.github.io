@@ -1,0 +1,45 @@
+Steps using Navigator geolocation application
+
+Step 1: check is geolocation is available using
+
+<script>
+if ("geolocation" in navigator) {
+  console.log('geolocation is available');
+} else {
+console.log('geolocation IS NOT available');
+}
+</script>
+
+===============================================================================================================================================
+Step 2: once we've verified that it is available we now want to geolocate
+
+if ("geolocation" in navigator) {
+  console.log('geolocation is available');
+  navigator.geolocation.getCurrentPosition(position => {
+  //uses the arrow function to prompt the console to show the position object when its ready in the console
+    console.log(position);
+
+  });
+} else {
+console.log('geolocation IS NOT available');
+}
+</script>
+
+will get a pop up in the browser to ask is the server that I or my client is on which I created, can access their geo location.
+They can either choose to allow or block. Has to be explicitly allowed by the user
+
+<h1>Data Selfie App</h1>
+
+<p>
+  latitude: <span id="latitude"></span>&deg;</br>
+  longitude: <span id="longitude"></span>&deg;</br>
+</p>
+
+this code is displaying the cordinates in the broswer, and the (&deg adds the degree symbol to the end)
+
+==================================================================================================================================================
+
+step 3: send the geolocation information to the server
+
+key concept for video 2.2 Geolocation Web API - Working with Data and APIs in JavaScript: how to communicate data that's
+extracted in the client and send it to the server and save it to the database
