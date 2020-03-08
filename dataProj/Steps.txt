@@ -43,3 +43,25 @@ step 3: send the geolocation information to the server
 
 key concept for video 2.2 Geolocation Web API - Working with Data and APIs in JavaScript: how to communicate data that's
 extracted in the client and send it to the server and save it to the database
+
+
+Video 2.3 Post Request with fetch() - working with Data and APIs in Javascript by Dan Shiffman
+
+Post with fetch()
+
+In this video, Dan is doing something important, a key feature here
+
+* take Data from the client, the latitude and longitude, and send it to the server and have the server to eventually
+save that user information into a data base
+
+* not there, just want the client to execute its own client side JavaScript, gets the latitude and longitude, and sends that data to the server, and the
+server can just console.log it for now
+
+(Going to need to look at three things to do this)
+
+* Routing - how do I set up a route in express. The end point for the API
+  the address at which I will send the data to and later also make a request to receive some data
+* JSON Parsing - need the route when it receives data to understand that data as JSON and make it readable
+  in our code. Also need to look at adapting the fetch function to specify a POST request, a request that is posting
+  data
+*
