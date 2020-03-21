@@ -64,4 +64,8 @@ server can just console.log it for now
 * JSON Parsing - need the route when it receives data to understand that data as JSON and make it readable
   in our code. Also need to look at adapting the fetch function to specify a POST request, a request that is posting
   data
-*
+* Also need to look at adapting the fetch function for adapting the fetch() function, to specify a POST Request
+  request, that is posting data or sending data to the server
+
+  -lets start with the route. We want to set up a route on my server, so the way that we do that is by specifying
+   that, this particular route, will either be a GET or a POST. In this case we expect a POST request

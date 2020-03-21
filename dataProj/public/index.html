@@ -49,6 +49,38 @@
           const long = position.coords.longitude;
           document.getElementById('latitude').textContent = lat;
           document.getElementById('longitude').textContent = long;
+
+
+          const data = {lat,long};/*sending the lat and long as soon as its ready inside of an object*/
+          const options = {
+            //first property we need to put in options is teh (method) that we are using
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+              //'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: JSON.stringify(data)
+
+            /*
+            specifically sending data in JSON format. we need to specify this in something called
+            a header.
+
+            - a header is something that can be packaged along with any POST or GET request thats moving between
+              client and server, and its a way of adding some additional meta information. Can read more in the mozzilla
+              docs
+
+            - Headers have a name, a colon, and a value
+
+            * so we get the geolocation data, we package it into a post, and we send it to the endpoint.
+            */
+
+          };
+          fetch('/sending_data',options); /*
+          right now what we want to do is send a post.
+          since we are not doing a regular fetch request, we have to provide a second argument which we named options, which is just a javaScript object.
+          we create the javaScript object options so we can evaluate it seperately.
+          */
+
           mymap = L.map('mapid').setView([lat, long], 13);
           var marker = L.marker([lat, long]).addTo(mymap); /*adding markers of my location to the code
           even though I still have to fix where the maps location is since by default its Long*/
@@ -69,12 +101,6 @@
       } else {
         console.log('geolocation IS NOT available');
       }
-
-
-
-
-
-
 //=================================================================================================================================
 
 //NOT USING THIS VERSION OF THE ICON POP UP (HIDES THE ICON LAYER)
