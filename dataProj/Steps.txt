@@ -1,3 +1,5 @@
+I'm using Dan Shiffman's Server-Side Programming and Databases with Node.js YouTube course to complete this project
+
 Steps using Navigator geolocation application
 
 Step 1: check is geolocation is available using
@@ -69,3 +71,12 @@ server can just console.log it for now
 
   -lets start with the route. We want to set up a route on my server, so the way that we do that is by specifying
    that, this particular route, will either be a GET or a POST. In this case we expect a POST request
+
+* we now have a server that hosts a static file, so when we go and load the server into our browser, we see index.html
+
+  - the javaScript locates the html, geolocates the latitude and longitude and sends that with the POST to the server
+  - the server then receives it and sends that with a POST to the server
+  - the server receives it, console logs it out, and sends it back saying, I got it. The data is exchanged
+
+
+=========================================================================================================================================================================================================================================

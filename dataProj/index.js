@@ -45,6 +45,18 @@ we can start by limitting the code server to only processing 1 megabyte of code
 app.post('/sending_data', (request, response) => {
   //res.send('POST request to the homepage')
   console.log(request.body);
+  /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
+  recieved.*/
+  const data = request.body;
+  response.json({
+    status: 'success',
+    latitude: data.lat,
+    longitude: data.long
+  });
+  /*
+  everything in the response.json is what we want to send back to the server as javaScript. Now in the client
+  we want to do something to receive this
+  */
 });
 /*When specifying a post, we are going to want to specify the address, where we want to receive that POST, as
 well as a callback function, where I'm going to look at the information coming in and send a response back

@@ -43,7 +43,7 @@
 
       if ("geolocation" in navigator) {
         console.log('geolocation is available');
-        navigator.geolocation.getCurrentPosition(position => {
+        navigator.geolocation.getCurrentPosition(async position => { //making the position callback an asyncrhonous function
           console.log(position);
           const lat = position.coords.latitude;
           const long = position.coords.longitude;
@@ -75,10 +75,31 @@
             */
 
           };
-          fetch('/sending_data',options); /*
+          const response = await fetch('/sending_data',options);
+          const json_information = await response.json();
+          console.log(json_information); 
+
+          /*
+          .then(response => {
+            console.log(response);
+          });
+
+          previous code that was added before position in the code above was changed to an asynchronous function, and the keyword
+          await was used
+          */
+
+           /*
           right now what we want to do is send a post.
           since we are not doing a regular fetch request, we have to provide a second argument which we named options, which is just a javaScript object.
           we create the javaScript object options so we can evaluate it seperately.
+
+          fetch() returns a promise
+
+          when the response comes back, its written as a datastream, and its up to us to specify how we want to read the information
+          - we want to read it as a JSON. So we have to handle this in the client index.html
+            - to do this we could add on another .then() to the fetch function but Dan Shiffman suggest to go to the
+              navigator.geolocation.getCurrentPosition(position => {}) and make the callback function position an asyncrhonous function
+              with the async keyword, and then we could use the keyword await
           */
 
           mymap = L.map('mapid').setView([lat, long], 13);
