@@ -1,0 +1,41 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Users\\Brien Bledsoe\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'nedb'
+1 verbose cli ]
+2 info using npm@6.13.3
+3 info using node@v12.13.0
+4 verbose npm-session 95c4101c21a6ddb9
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 timing stage:rollbackFailedOptional Completed in 5ms
+8 timing stage:runTopLevelLifecycles Completed in 205ms
+9 verbose stack Error: Failed to parse json
+9 verbose stack Unexpected token } in JSON at position 195 while parsing near '...ed\" && exit 1",
+9 verbose stack
+9 verbose stack   },
+9 verbose stack   "keywords": [
+9 verbose stack  ...'
+9 verbose stack     at parseError (C:\Users\Brien Bledsoe\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:470:11)
+9 verbose stack     at parseJson (C:\Users\Brien Bledsoe\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:105:26)
+9 verbose stack     at C:\Users\Brien Bledsoe\AppData\Roaming\npm\node_modules\npm\node_modules\read-package-json\read-json.js:52:5
+9 verbose stack     at C:\Users\Brien Bledsoe\AppData\Roaming\npm\node_modules\npm\node_modules\graceful-fs\graceful-fs.js:115:16
+9 verbose stack     at FSReqCallback.readFileAfterClose [as oncomplete] (internal/fs/read_file_context.js:61:3)
+10 verbose cwd C:\Users\Brien Bledsoe\Documents\Senior_Project\dataProj
+11 verbose Windows_NT 10.0.18362
+12 verbose argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\Brien Bledsoe\\AppData\\Roaming\\npm\\node_modules\\npm\\bin\\npm-cli.js" "install" "nedb"
+13 verbose node v12.13.0
+14 verbose npm  v6.13.3
+15 error code EJSONPARSE
+16 error file C:\Users\Brien Bledsoe\Documents\Senior_Project\dataProj\package.json
+17 error JSON.parse Failed to parse json
+17 error JSON.parse Unexpected token } in JSON at position 195 while parsing near '...ed\" && exit 1",
+17 error JSON.parse
+17 error JSON.parse   },
+17 error JSON.parse   "keywords": [
+17 error JSON.parse  ...'
+18 error JSON.parse Failed to parse package.json data.
+18 error JSON.parse package.json must be actual JSON, not just JavaScript.
+19 verbose exit [ 1, true ]

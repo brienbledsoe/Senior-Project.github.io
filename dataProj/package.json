@@ -4,8 +4,7 @@
   "description": "this is my senior project app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "example"
@@ -13,6 +12,7 @@
   "author": "Brien Bledsoe",
   "license": "MIT",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
   }
 }

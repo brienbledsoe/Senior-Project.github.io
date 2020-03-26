@@ -78,5 +78,30 @@ server can just console.log it for now
   - the server then receives it and sends that with a POST to the server
   - the server receives it, console logs it out, and sends it back saying, I got it. The data is exchanged
 
-
+GO BACK TO THIS VIDEO AND SEE IF I CAN ADD A SUBMIT BUTTON THAT POPULATES THE DATA BASE WITH INFORMATION OF EACH SESSION AFTER I SUBMIT
 =========================================================================================================================================================================================================================================
+
+
+Video 2.4 Saving to a Database - Working with Data and API's in JavaScript
+
+* Its time to add a Database with NeDB
+- also mentions that Firebase would be a great Database but that NeDB is a lightweight JavaScript Database and will be the perfect fit for the sake of this project
+
+- Ask why do we need a database?
+  - Answer: a database is for persistence, our ability to store information over the long haul. Whether or not we quit the server or restart the server, clients are connecting
+    or disconencting, their information is saved.
+
+  - classic example of this is we create a game, we are going to need somehwere to store that high score list. Maybe we have different user accounts with names and passwords, which would be a little
+   tricky because we would have to deal with security there, but thats something that needs to be stored in a database.
+   - cant do this with client side coding alone
+   - dont need to make our own database, or keep own database on a server. We can use something called a database as a service. Dan has made videos before about a firebase, and how to have the firebase
+     service store data for us. Theres also mLab which is also a database as a service, it uses the database system MongoDB, which is a very popular database system. Its known as a document database, meaning
+     meaning the data is stored in basically documents like JSON files in a way.
+   - mLab is a service, once again, that we can send data to and it will save it for us, and we could recieve data as well. could still use node but not have the database on our server. Could also use MongoDB with Node
+
+   -NeDb is an open source, very light, very simple database, and we can run it in node. It is not going to be the end solution for a giant piece of software were building for a huge web application. But fore basic database functionality
+    and learning about how to work with databases, its a wonderful system to use.
+    -all of the documentation for NeDB is on github
+
+    OKAY THIS PART IS FINISHED BUTTTTT...
+      -he wants to see if I can add any additional information that can be submitted and entered and saved into the data base

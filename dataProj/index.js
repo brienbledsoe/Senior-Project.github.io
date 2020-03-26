@@ -1,6 +1,7 @@
 const express = require('express');
 /*in order to have acess to the node package express, need to put this ^
 line of code above. Basically like an import statement*/
+const Datastore = require('nedb'); //getting a function that creates a datastore or a databse
 const app = express(); //creating the web application app in this line
 /*whole node library express is brought in and put inside a variable that we have called app*/
 app.listen(3000, () => console.log("listening at 3000")); /*Based on Dan Shiffman's diagram, when we create a server, the server want to start
@@ -40,16 +41,49 @@ code that allows the server to parse javaScript code
 we can also put some options in there to control or limit what is possible in terms of receiving
 data
 
+
 we can start by limitting the code server to only processing 1 megabyte of code
 */
+
+// const database = [];
+//create array for saving information into database
+const database = new Datastore('database.db');
+
+/*What we are going to give to this Datastore function, is a path to a file name
+ultimately the database is going to sit on a local file on this laptop, becuase thats where we are running the file right now.
+- once we've created this datastore, its up to us to now specify whether or not we want to load whatever is in there
+*/
+database.loadDatabase(); /*going to actually load the file, load the existing data from the previous time the server ran into memory
+and puts the file in our directory. If we actually looked inside the file as of right now, theres nothing actually inside so now we move on to using insert
+to populate the database*/
+// database.insert({name: "Brien", status: '🌈'});
+// database.insert({name: "Siva", status: '🍉'});
+/*a key aspect of working with a database, is having every record, every entry into the database be associated with a unique key
+NeDb is generating this code, (ID within the database.db file), this seemingly randon sequence of letters and numbers to be this particular
+piece of data's unique ID */
+
+/*
+we want to insert information into the database the moment we receive it from the client
+*/
+
 app.post('/sending_data', (request, response) => {
   //res.send('POST request to the homepage')
   console.log(request.body);
+
   /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
   recieved.*/
   const data = request.body;
+  // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
+  const timestamp = Date.now(); //function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
+  data.timestamp = timestamp;
+  database.insert(data);
+  /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
+
+  //every time we receive new data we push it into the database
+  console.log(database);
   response.json({
     status: 'success',
+    timestamp:timestamp,
     latitude: data.lat,
     longitude: data.long
   });
