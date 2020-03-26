@@ -74,11 +74,17 @@ server can just console.log it for now
 
 * we now have a server that hosts a static file, so when we go and load the server into our browser, we see index.html
 
-  - the javaScript locates the html, geolocates the latitude and longitude and sends that with the POST to the server
+  - the JavaScript locates the html, geolocates the latitude and longitude and sends that with the POST to the server
   - the server then receives it and sends that with a POST to the server
   - the server receives it, console logs it out, and sends it back saying, I got it. The data is exchanged
 
 GO BACK TO THIS VIDEO AND SEE IF I CAN ADD A SUBMIT BUTTON THAT POPULATES THE DATA BASE WITH INFORMATION OF EACH SESSION AFTER I SUBMIT
+- make a variable like an array, and every time we get the latitude and longitude, save that variable to an array. That is persistence.
+- Of course, once we quite the server, restart the server, its lost. So another thing I could try to do is look up the Node File System package 🔥🔥
+- maybe I could use the Node File System package to save all of the stuff in that array to a text file, and I could always load that text file,
+  maybe its JSON format, or plain text, or even CSV.
+-While I am doing this, whether I am saving the latitude and longitude to an array or a text file, I should add a button to my HTML page, so that every times
+  I click that button, when I send the latitude and longitude to the server itself. 🔥🔥🔥
 =========================================================================================================================================================================================================================================
 
 
