@@ -1,3 +1,4 @@
+
 const express = require('express');
 /*in order to have acess to the node package express, need to put this ^
 line of code above. Basically like an import statement*/
@@ -31,10 +32,13 @@ the way we give the server access to our index.html file is by using Express to 
 );
 */
 
-app.use(express.static('public')); /*what we need to give here is a folder name, and were going to call it public,
+ app.use(express.static('public'));
+//  app.use("/index.html", (req,res) =>
+//   res.sendFile("/public/index.html", {root: __dirname})
+// );
+/*what we need to give here is a folder name, and were going to call it public,
 because we're going to remind ourselves that we put within the public directory is public accessible from the URL
 in this case itse localhost:3000 */
-
 app.use(express.json({limit: '1mb'})); /*
 code that allows the server to parse javaScript code
 
@@ -66,46 +70,53 @@ piece of data's unique ID */
 we want to insert information into the database the moment we receive it from the client
 */
 
-app.post('/sending_data', (request, response) => {
-  //res.send('POST request to the homepage')
-  console.log(request.body);
 
-  /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
-  recieved.*/
-  const data = request.body;
-  // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
-  const timestamp = Date.now(); //function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
-  data.timestamp = timestamp;
-  database.insert(data);
-  /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
 
-  //every time we receive new data we push it into the database
-  console.log(database);
-  response.json({
-    status: 'success',
-    timestamp:timestamp,
-    latitude: data.lat,
-    longitude: data.long
+  app.post('/sending_data', (request, response) => {
+    //res.send('POST request to the homepage')
+    console.log(request.body);
+
+    /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
+    recieved.*/
+    const data = request.body;
+    // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
+    const timestamp = Date.now(); //function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
+    data.timestamp = timestamp;
+    database.insert(data);
+    /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
+
+
+      //const json_information = await response.json();
+      //console.log("testing: ");
+      //every time we receive new data we push it into the database
+      console.log(database);
+      response.json({
+        status: 'success',
+        timestamp:timestamp,
+        latitude: data.lat,
+        longitude: data.long
+      });
+
+
+    /*
+    everything in the response.json is what we want to send back to the server as javaScript. Now in the client
+    we want to do something to receive this
+    */
   });
-  /*
-  everything in the response.json is what we want to send back to the server as javaScript. Now in the client
-  we want to do something to receive this
+  /*When specifying a post, we are going to want to specify the address, where we want to receive that POST, as
+  well as a callback function, where I'm going to look at the information coming in and send a response back
+
+  now we are setting up the address, the endpoint for this particular route, where we want to receive
+  post. We can call it anything.
+
+  after the address, we need to set up a callback, (requests, response). We will be using the javaScript arrow syntax to create the
+  function which makes everything cleaner and replaces the generic function key word in the express version.
+
+  * so the function is here, and the request variable holds everything thats within that request. All the data thats being sent
+    any information we need to know about that particular client is sending the information
+
+  * the response is a variable that we can use to send things back to the client.
+
+  * now we must move fetch our post over to the /sending_data endpoint.
+      - so the client code, index.js and client index.html,
   */
-});
-/*When specifying a post, we are going to want to specify the address, where we want to receive that POST, as
-well as a callback function, where I'm going to look at the information coming in and send a response back
-
-now we are setting up the address, the endpoint for this particular route, where we want to receive
-post. We can call it anything.
-
-after the address, we need to set up a callback, (requests, response). We will be using the javaScript arrow syntax to create the
-function which makes everything cleaner and replaces the generic function key word in the express version.
-
-* so the function is here, and the request variable holds everything thats within that request. All the data thats being sent
-  any information we need to know about that particular client is sending the information
-
-* the response is a variable that we can use to send things back to the client.
-
-* now we must move fetch our post over to the /sending_data endpoint.
-    - so the client code, index.js and client index.html,
-*/
