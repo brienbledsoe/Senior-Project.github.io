@@ -1,4 +1,3 @@
-import './style.css';
 const express = require('express');
 /*in order to have acess to the node package express, need to put this ^
 line of code above. Basically like an import statement*/
@@ -68,7 +67,27 @@ piece of data's unique ID */
 /*
 we want to insert information into the database the moment we receive it from the client
 */
+app.get('/sending_data', (request,response) =>{
+  database.find({}, (err,data) =>{
+    if (err){
+      console.log("Error: ", err); 
+      response.end();
+      return;
+    }
+    else{
+      response.json(data); //sending the data, passing the data to the client
 
+    }
+  })
+  /*
+  NeDB has more documentation on find
+  -we would give it an object here which is a way of modifying that search, but we are going to
+  give it an empty object because we want it to look for everything
+  -and we are going to give it a callback
+  -the callback has two arguments, error, and the data itself.
+  */
+
+});
 
 
   app.post('/sending_data', (request, response) => {

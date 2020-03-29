@@ -195,5 +195,18 @@ NOW THEN
 * ultimately what we want to do is from the client, we want to make a GET request to a route on the server, and have that route return all the data from the database
   - the way we will do this is with fetch()
 
+  * Now for the final implementation of this page I want to use my web design skills to better format the all.html web page properly
+  * 🔥 This project is done in many ways
+    - we have implemented all of the pieces.
+    - 1. we have client side JavaScript collecting some data
+    - 2. that data is then passed off to the server
+    - 3. saved to a database
+    - 4. and also in the client, I can make a request to look at everything in the database
+    *so this would work if I deployed the server somewhere and let people use it. There are definitely some things missing
+     her like useraccounts but I can add that later
+     - maybe theres some other kind of interesting data that I want to capture about myself through this web application
+      - one of the things that Dan wants to do is add an image from a webcam 🔥,
+      - talks about adding the P5 library, the creative coding JavaScript library, maybe connect to another API
+      -get the weather API and get the weather information, also really want to think about how we are presenting this back
 
 ====================================================================================================================================================================
