@@ -111,3 +111,19 @@ Video 2.4 Saving to a Database - Working with Data and API's in JavaScript
 
     OKAY THIS PART IS FINISHED BUTTTTT...
       -he wants to see if I can add any additional information that can be submitted and entered and saved into the data base
+      * uses a text box along with the button and populates the database with its value 🔥
+
+===============================================================================================================================================================================================================================================
+
+2.5 Database Query - Working with Data and APIs in JavaScript
+
+- Dan Says theres almost nothing new to learn at this point
+- It's just putting some of the pieces we've seen previously together in a slightly different way.
+- Things we are going to look at again
+  - need to look at routing again. So we need a new route in our server, but instead of app.post we are going to use app.get('/route');
+  - going to need to use the fetch() function again, fetch() GET request, only this time we are going to use the simpler version of fetch(), just
+    a simple get request, just to get information from the server itself
+  - Finally we need to find functionality in the database system itself NeDB, that allows me to query the database, to find something.
+    and in fact there is a function called find()
+      -going to use find() to ask for everything from the database, but you can also use find() with search terms and other kinds of ways to ask
+       for certain key aspects or parts of the database itself

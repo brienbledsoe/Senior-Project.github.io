@@ -72,7 +72,11 @@
      </script>
 
      <br>
-      <button id="console" onclick="sendConsoleInfo()">Share Your Location!</button>
+
+     <label for="enterName">Name</label>
+     <input type="text" id="entertName" placeholder="Name">
+
+    <button onclick="sendConsoleInfo()">Click ME!</button>
               <script>
                 function sendConsoleInfo() {
                   alert('THANKS FOR SENDING YOUR LOCATION!');
@@ -85,7 +89,20 @@
                        const long = position.coords.longitude;
                        document.getElementById('latitude').textContent = lat;
                        document.getElementById('longitude').textContent = long;
-
+                       console.log("user: ", document.getElementById('entertName')); 
+                       // document.getElementById('console').value = val;
+                       //console.log("I am testing: ", document.getElementById('enterName').value);
+                       // var val = document.getElementById('enterName');
+                       // console.log("Testing :",val)
+                       // if(val != null){
+                       //   var username = val.value;
+                       //   return username;
+                       // }else{
+                       //   username="This shit doesn't work"
+                       //   return username;
+                       // }
+                       // console.log("testing username: ", username);
+                       //var val = document.getElementById('enterName') ? document.getElementById('enterName').value : "";
                        const data = {lat,long};/*sending the lat and long as soon as its ready inside of an object*/
                        const options = {
                          //first property we need to put in options is teh (method) that we are using

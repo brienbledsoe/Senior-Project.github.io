@@ -92,6 +92,7 @@ we want to insert information into the database the moment we receive it from th
       console.log(database);
       response.json({
         status: 'success',
+        // name: data.val,
         timestamp:timestamp,
         latitude: data.lat,
         longitude: data.long
