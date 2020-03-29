@@ -115,6 +115,66 @@ Video 2.4 Saving to a Database - Working with Data and API's in JavaScript
 
 ===============================================================================================================================================================================================================================================
 
+PREVIOUS CODE IN index.js file
+
+app.post('/sending_data', (request, response) => {
+  console.log("Testing")
+
+  //res.send('POST request to the homepage')
+  console.log("I got a request!");
+  console.log("what: ",request.body);
+
+  /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
+  recieved.*/
+  const data = request.body;
+  // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
+  const timestamp = Date.now(); //function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
+  data.timestamp = timestamp;
+  database.insert(data);
+  /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
+
+
+    //const json_information = await response.json();
+    //console.log("testing: ");
+    //every time we receive new data we push it into the database
+    console.log(database);
+    console.log(request.body);
+    response.json({
+      status: 'success',
+      name: data.user,
+      timestamp:timestamp,
+      latitude: data.lat,
+      longitude: data.long
+    });
+
+
+  /*
+  everything in the response.json is what we want to send back to the server as javaScript. Now in the client
+  we want to do something to receive this
+  */
+});
+/*When specifying a post, we are going to want to specify the address, where we want to receive that POST, as
+well as a callback function, where I'm going to look at the information coming in and send a response back
+
+now we are setting up the address, the endpoint for this particular route, where we want to receive
+post. We can call it anything.
+
+after the address, we need to set up a callback, (requests, response). We will be using the javaScript arrow syntax to create the
+function which makes everything cleaner and replaces the generic function key word in the express version.
+
+* so the function is here, and the request variable holds everything thats within that request. All the data thats being sent
+  any information we need to know about that particular client is sending the information
+
+* the response is a variable that we can use to send things back to the client.
+
+* now we must move fetch our post over to the /sending_data endpoint.
+    - so the client code, index.js and client index.html,
+*/
+
+
+
+
+===============================================================================================================================================================================================================================================
 2.5 Database Query - Working with Data and APIs in JavaScript
 
 - Dan Says theres almost nothing new to learn at this point
@@ -127,3 +187,13 @@ Video 2.4 Saving to a Database - Working with Data and API's in JavaScript
     and in fact there is a function called find()
       -going to use find() to ask for everything from the database, but you can also use find() with search terms and other kinds of ways to ask
        for certain key aspects or parts of the database itself
+- says that of course at some point we will want to move our JavaScript files into separate JavaScript files, maybe have some CSS files, but states this particular
+  video series/course is not about web design or proper web development
+
+
+NOW THEN
+* ultimately what we want to do is from the client, we want to make a GET request to a route on the server, and have that route return all the data from the database
+  - the way we will do this is with fetch()
+
+
+====================================================================================================================================================================

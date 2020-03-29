@@ -1,4 +1,4 @@
-
+import './style.css';
 const express = require('express');
 /*in order to have acess to the node package express, need to put this ^
 line of code above. Basically like an import statement*/
@@ -33,13 +33,12 @@ the way we give the server access to our index.html file is by using Express to 
 */
 
  app.use(express.static('public'));
-//  app.use("/index.html", (req,res) =>
-//   res.sendFile("/public/index.html", {root: __dirname})
-// );
+
 /*what we need to give here is a folder name, and were going to call it public,
 because we're going to remind ourselves that we put within the public directory is public accessible from the URL
 in this case itse localhost:3000 */
-app.use(express.json({limit: '1mb'})); /*
+app.use(express.json({limit: '1mb'}));
+/*
 code that allows the server to parse javaScript code
 
 we can also put some options in there to control or limit what is possible in terms of receiving
@@ -73,37 +72,45 @@ we want to insert information into the database the moment we receive it from th
 
 
   app.post('/sending_data', (request, response) => {
-    //res.send('POST request to the homepage')
-    console.log(request.body);
+    console.log("I got a request!");
+    console.log("Data: ",request.body);
 
-    /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
-    recieved.*/
+
     const data = request.body;
-    // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
-    const timestamp = Date.now(); //function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
+    const timestamp = Date.now();
     data.timestamp = timestamp;
     database.insert(data);
-    /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
 
-
-      //const json_information = await response.json();
-      //console.log("testing: ");
-      //every time we receive new data we push it into the database
       console.log(database);
+      console.log(request.body);
       response.json({
         status: 'success',
-        // name: data.val,
+        name: data.user,
         timestamp:timestamp,
         latitude: data.lat,
         longitude: data.long
       });
 
-
-    /*
-    everything in the response.json is what we want to send back to the server as javaScript. Now in the client
-    we want to do something to receive this
-    */
   });
+
+  // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
+
+
+  /*It is required that we complete a request. The best thing to do is send a response back when object or information has been
+  recieved.*/
+
+  //Date.now() - function explained in mozilla docs, the amount of time that has passed down to millisecond, from 1970
+  /*just like we pushed data into the array before, we are inserting it into the NeDb data store, and it will get saved in that file*/
+
+
+  //const json_information = await response.json();
+  //console.log("testing: ");
+  //every time we receive new data we push it into the database
+  /*
+  everything in the response.json is what we want to send back to the server as javaScript. Now in the client
+  we want to do something to receive this
+  */
+
   /*When specifying a post, we are going to want to specify the address, where we want to receive that POST, as
   well as a callback function, where I'm going to look at the information coming in and send a response back
 
