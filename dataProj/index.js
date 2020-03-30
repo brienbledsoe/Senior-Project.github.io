@@ -70,7 +70,7 @@ we want to insert information into the database the moment we receive it from th
 app.get('/sending_data', (request,response) =>{
   database.find({}, (err,data) =>{
     if (err){
-      console.log("Error: ", err); 
+      console.log("Error: ", err);
       response.end();
       return;
     }
@@ -92,23 +92,22 @@ app.get('/sending_data', (request,response) =>{
 
   app.post('/sending_data', (request, response) => {
     console.log("I got a request!");
-    console.log("Data: ",request.body);
-
-
     const data = request.body;
     const timestamp = Date.now();
     data.timestamp = timestamp;
     database.insert(data);
 
       console.log(database);
-      console.log(request.body);
-      response.json({
-        status: 'success',
-        name: data.user,
-        timestamp:timestamp,
-        latitude: data.lat,
-        longitude: data.long
-      });
+      console.log("Data: ",request.body);
+      // response.json({
+      //   status: 'success',
+      //   name: data.user,
+      //   timestamp:timestamp,
+      //   latitude: data.lat,
+      //   longitude: data.long,
+      //   image: data.image64
+      // });
+      response.json(data);
 
   });
 

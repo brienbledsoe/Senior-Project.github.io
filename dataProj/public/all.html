@@ -36,6 +36,7 @@
       const name = document.createElement('div');
       const geo = document.createElement('div');
       const date = document.createElement('div');
+      const image = document.createElement('img');
 
       name.textContent = `name: ${item.user}`;
       geo.content = `${item.lat},${item.long}`;
@@ -43,8 +44,9 @@
       /*this is basically taking thatt timestamp, which is basically the # of milliseconds since
       January 1 1970, and converting back into a string*/
       date.textContent = dateString;
+      image.src = item.image64;
       /*so basically all three divs all go inside root*/
-      root.append(name,geo,date);
+      root.append(name,geo,date,image);
       /*can use append functiona
       -append will actually take multiple elements as arguments and append them all
       */

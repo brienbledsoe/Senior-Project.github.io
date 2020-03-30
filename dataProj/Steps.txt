@@ -88,7 +88,7 @@ GO BACK TO THIS VIDEO AND SEE IF I CAN ADD A SUBMIT BUTTON THAT POPULATES THE DA
 =========================================================================================================================================================================================================================================
 
 
-Video 2.4 Saving to a Database - Working with Data and API's in JavaScript
+2.4 Saving to a Database - Working with Data and API's in JavaScript
 
 * Its time to add a Database with NeDB
 - also mentions that Firebase would be a great Database but that NeDB is a lightweight JavaScript Database and will be the perfect fit for the sake of this project
@@ -208,5 +208,59 @@ NOW THEN
       - one of the things that Dan wants to do is add an image from a webcam 🔥,
       - talks about adding the P5 library, the creative coding JavaScript library, maybe connect to another API
       -get the weather API and get the weather information, also really want to think about how we are presenting this back
+      -add some navigation between the pages, maybe change to single page web app
 
 ====================================================================================================================================================================
+
+2.6 Saving Images and Base64 Encoding - Working with Data and APIs in JavaScript
+
+* IMPLEMENTS USING P5.JS IN THIS VIDEO 🌈🌈🚋
+
+* Going to use the p5.js library, to open up a connection to the webcam to display the webcam's image on an HTML5 JavaScript canvas
+  and then to take the data from that image and pass it to the database
+
+  -so this is another feature that we are going to add in the client side JavaScript
+  - the client side JavaScript is doing the geolocation and it is now going to call the 05 function createCapture(VIDEO)
+    -that video is going to be viewed in the clients browser, but then when the submit button is used, the data from
+     that image will get sent to the server and stored to the database
+
+NOW THEN:
+-navigate over to the p5.js get started page, and look for link that says p5.js CDN
+  -CDN (content delivery network) is a hosting service that will deliver you content, and the content that
+   we want is the p5.js library
+
+   - suggest to use the p5.min.js
+    * when you see a JavaScript library, there's often what's known as a minified version and a non minified version
+      if we wanted to really peek and view the source code files ourselves we would get the bigger version
+      * But if we're just using the library, it's going to be a smaller file size and make things kind of snappier
+
+    * notice that on the CDN page, there's a bunch of things listed, theres p5.dom, p5.soun, p5.dom.min
+      the p5 library has several different component's to it
+      -the core libary that you're pretty much always going to want is just p5.min.js
+       *we also want to use the dom library, thats where the functionality for using the webcam is
+
+  * Also grab the p5.dom.min file
+    *😭they didn't have the dom file, I think the update excluded it
+
+
+  *Base64 encoding is a method to take some binary data, in this case the image, all the colors of the pixels of the image and convert it to ASCII data
+   meaning a string of text. This isn't doing anything to compress the image, its just repackaging the same data, in a format that's incredibly
+   convenient to pass around
+
+   * in other words I need to send the webcam image from here (the client), to the server, and a really easy way to do that is by sending a string
+   of text to the server.
+    - if we can turn the image into a string of text and then we have a nice way to post it to the server.
+
+  * In JavaScript the HTML canvas PI includes a function called toDataURL(), which takes a canvas,
+    presumably with pixels of information in it, and converts that to the base64 encoding of that image 🌈
+
+  * now that we have the base64 encoding he recommends that we pull the encoding into a different file and then
+    add the path to the file in the database, rather then the entire text file in the database
+    - !!!HE IS ADDING SUPPLEMENTAL CODE TO DO THIS IN VIDEO AND ATTACHING LINK🔥🔥🔥
+====================================================================================================================================================================================================================================
+
+2.7 Project Wrap-up: Accessibility and Design - Working with Data and APIs in JavaScript
+
+***Dan actually covers accessibility and Design in this video🌈🔥🚋
+
+-- I will work on this after the demo and explain this to the professor and classmates 🔥🔥
