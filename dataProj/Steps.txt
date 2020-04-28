@@ -1,3 +1,6 @@
+TO USE EMOJIES TYPE :<whatever emoji> Ex) :"raindbow" will produe 🌈
+
+
 I'm using Dan Shiffman's Server-Side Programming and Databases with Node.js YouTube course to complete this project
 
 Steps using Navigator geolocation application
