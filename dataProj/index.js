@@ -67,18 +67,37 @@ piece of data's unique ID */
 /*
 we want to insert information into the database the moment we receive it from the client
 */
-app.get('/sending_data', (request,response) =>{
-  database.find({}, (err,data) =>{
-    if (err){
-      console.log("Error: ", err);
-      response.end();
-      return;
-    }
-    else{
-      response.json(data); //sending the data, passing the data to the client
+// app.post('/sending_data', (request,response)=>{
+//   console.log(request.body);
+// });
 
+
+app.get('/sending_data', (request,response) =>{
+  database.find({}).sort({timestamp:1}).exec((err,data)=>{
+    if(err){
+      console.log("error: ",err);
+      response.end;
+      return;
+    }else{
+      console.log("new test")
+      response.json(data)
     }
   })
+  // database.find({}, (err,data) =>{
+  //   if (err){
+  //     console.log("Error: ", err);
+  //     response.end();
+  //     return;
+  //   }
+  //   else{
+  //     console.log("hello",data.timestamp)
+  //     console.log("data: ",data)
+  //     console.log("data 2: ", data[1].timestamp)
+  //     response.json(data); //sending the data, passing the data to the client
+  //
+  //   }
+  // })
+
   /*
   NeDB has more documentation on find
   -we would give it an object here which is a way of modifying that search, but we are going to
@@ -91,21 +110,26 @@ app.get('/sending_data', (request,response) =>{
 
 
   app.post('/sending_data', (request, response) => {
-    console.log("I got a request!");
+    console.log("I got a request!", request.body);
     const data = request.body;
+    console.log("This is the data: ",data)
     const timestamp = Date.now();
+    // data.emotion = emotion;
     data.timestamp = timestamp;
-    database.insert(data);
+    // data.emotion = emotion;
+    // data.status = status;
 
+    database.insert(data);
+    //
       console.log(database);
-      console.log("Data: ",request.body);
+      // console.log("Data: ",data);
       // response.json({
       //   status: 'success',
-      //   name: data.user,
+      //   emotion: data.emotion,
       //   timestamp:timestamp,
       //   latitude: data.lat,
-      //   longitude: data.long,
-      //   image: data.image64
+      //   longitude: data.lon
+      //   // image: data.image64
       // });
       response.json(data);
 

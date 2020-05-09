@@ -267,3 +267,14 @@ NOW THEN:
 ***Dan actually covers accessibility and Design in this video🌈🔥🚋
 
 -- I will work on this after the demo and explain this to the professor and classmates 🔥🔥
+
+📓 -- gives a lot of things to try to implement at the end of this video
+    - check end of video for the parts of the project that I want to add for p5.js
+
+=======================================================================================================================================================================================================================================
+
+Starting On Module 3
+
+3.1 API calls from Node.js (Weather data from Dark Sky) - Working with Data and APIs in JavaScript
+
+openweathermap api key = bd3aebe7893aee9885545c96d06c993e
