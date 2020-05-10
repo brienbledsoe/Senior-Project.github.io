@@ -9,12 +9,17 @@
   "keywords": [
     "example"
   ],
-  "author": "Brien Bledsoe",
-  "license": "MIT",
-  "dependencies": {
-    "dotenv": "^8.2.0",
-    "express": "^4.17.1",
-    "nedb": "^1.8.0",
-    "node-fetch": "^2.6.0"
-  }
+
+
+    "author": "Brien Bledsoe",
+    "license": "MIT",
+    "dependencies": {
+      "dotenv": "^8.2.0",
+      "express": "^4.17.1",
+      "nedb": "^1.8.0",
+      "node-fetch": "^2.6.0"
+    }
+
+  
+
 }

@@ -1,0 +1,1 @@
+{"name":"co-wait","dist-tags":{"latest":"0.0.0"},"versions":{"0.0.0":{"name":"co-wait","version":"0.0.0","devDependencies":{"tape":"~1.0.4","co":"~1.5.1"},"dist":{"shasum":"c22372032218edbf6ed915e433546c21e445628b","tarball":"https://registry.npmjs.org/co-wait/-/co-wait-0.0.0.tgz"}}},"modified":"2017-08-23T02:37:38.721Z"}
