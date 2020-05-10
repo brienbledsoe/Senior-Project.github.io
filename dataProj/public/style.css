@@ -6,10 +6,10 @@
 
 p {
   padding:5px;
-  background-color: #FFAAFF;
+  /* background-color: #FFAAFF; */
 
 }
 
 #airQuality{
-  display: block; 
+  display: block;
 }

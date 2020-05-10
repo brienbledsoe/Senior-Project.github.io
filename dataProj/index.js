@@ -3,6 +3,9 @@ const express = require('express');
 line of code above. Basically like an import statement*/
 const Datastore = require('nedb'); //getting a function that creates a datastore or a databse
 const fetch = require('node-fetch');
+require('dotenv').config()/*going to tell this particular server to load
+anything thats in a file called dotenv into an enviornment variable*/
+// console.log(process.env); printing the api_key added to enviornment variables in the terminal
 const app = express(); //creating the web application app in this line
 /*whole node library express is brought in and put inside a variable that we have called app*/
 app.listen(3000, () => console.log("listening at 3000")); /*Based on Dan Shiffman's diagram, when we create a server, the server want to start
@@ -143,8 +146,9 @@ app.get('/weather/:latlon', async (request,response) =>{
   const lat = latlon[0];
   const lon = latlon[1];
   console.log("printing whats in latlon", lat,lon)
-
-  const weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exlude=hourly&appid=bd3aebe7893aee9885545c96d06c993e`
+  // const api_key = 'bd3aebe7893aee9885545c96d06c993e';
+  const api_key = process.env.API_KEY;
+  const weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exlude=hourly&appid=${api_key}`
   const weather_response = await fetch(weather_url);
   const weather_data = await weather_response.json();
 

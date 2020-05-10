@@ -20,12 +20,16 @@ if('geolocation' in navigator){
     // console.log("Testing: ",air);
 
     // const air = json.air_quality.results[0] ? json.air_quality.results[0].measurements[0] :
+  const weather = json.weather.current;
     hideInfo()
     function hideInfo() {
       if(air === "Not available"){
         console.log("inside first if")
         var x = document.getElementById("airQuality");
           x.style.display="none";
+
+          document.getElementById("test").innerHTML = "There is no air quality measurement available for your region\
+          at this time.";
       }
 
     }
@@ -37,12 +41,28 @@ if('geolocation' in navigator){
 
     // document.getElementById('aq_parameter').textContent = air.parameter;
     document.getElementById('aq_value').textContent = air.value ? air.value: "Not available";
-    document.getElementById('aq_units').textContent = air.unit ? air.value: "Not available";
+    document.getElementById('aq_units').textContent = air.unit ? air.unit: "Not available";
     document.getElementById('aq_date').textContent = air.lastUpdated ? air.lastUpdated : "Not available";
     console.log("is anything happening: ", json);
 
     console.log("This is your position: ",position)
-  });
+
+    var emotion = document.getElementById('Emotion').value;
+
+    const data = {lat,lon,weather,air};
+    const options = {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(data)
+    }
+        const db_response = await fetch('/sending_data',options);
+          // console.log("This is the response object: ",response);
+          const db_json = await db_response.json();
+          console.log("Printing db_json variable to console: ",db_json)
+
+  }); //end of position function
 
   }else{
     console.log('geolocation not available');
@@ -52,7 +72,7 @@ if('geolocation' in navigator){
   button.addEventListener('click', async event => {
     var emotion = document.getElementById('Emotion').value;
 
-    const data = {lat,lon,emotion};
+    const data = {emotion};
     const options = {
       method: 'POST',
       headers: {
@@ -60,19 +80,11 @@ if('geolocation' in navigator){
       },
       body: JSON.stringify(data)
     }
-        const response = await fetch('/sending_data',options);
+        const button_response = await fetch('/sending_data',options);
           // console.log("This is the response object: ",response);
-          const json = await response.json();
-          console.log("Printing data variable to console: ",json)
+          const button_json = await button_response.json();
+          console.log("Printing data variable to console: ",button_json)
 
 
-
-// });//end of position function
-
-
-
-// }else{
-//   console.log('geolocation not available');
-// }
 
 }); //end of button function

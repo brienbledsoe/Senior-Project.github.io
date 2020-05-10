@@ -288,3 +288,22 @@ go to chrom developer tools -> three dot vertical menu in bottom left -> sensors
 sensors are useful to simulate if I'm holding a mobile device and moving around
 
 🔥 can test out weather data and location on map in different areas by going to the sensors option and selecting a different geolocation
+
+==========================================================================================================================================================================================================================================
+
+3.3 Mapping Database Entries with Leaflet.js - Working with Data and APIs in JavaScript
+
+completed
+
+
+==========================================================================================================================================================================================================================================
+
+3.4 Hiding API Keys with Environment Variables (dotenv) and Pushing Code to GitHub
+
+video explains how to hide api key
+
+creating .env file to have my api key and created .env_sample to show the people how to enter their own
+
+❗❗❗ created .gitignore - git is version control software that keeps track of all of my files and various versions of them
+  🔥 - what .gitignore does is, it tells git, don't keep track of this file, that whatever is in the file is our own
+       personal secret information, that we only want on our local machine, and not to upload it when the code is pushed to github
