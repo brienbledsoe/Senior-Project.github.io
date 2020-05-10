@@ -14,13 +14,12 @@ if('geolocation' in navigator){
     // const api_url = `/weather`;
     const response = await fetch(api_url);
     const json = await response.json();
-    const weather = json.weather.current;
-    const air = json.air_quality;
-    document.getElementById('summary').textContent = weather[0].description;
-    document.getElementById('temperature').textContent = weather.temp;
+    console.log("This is json: ", json)
+    document.getElementById('summary').textContent = json.weather.current.weather[0].description;
+    document.getElementById('temperature').textContent = json.weather.current.temp;
     console.log("is anything happening: ", json);
 
-    console.log("This is your position: ",position)
+    // console.log("This is your position: ",position)
   });
 
   }else{

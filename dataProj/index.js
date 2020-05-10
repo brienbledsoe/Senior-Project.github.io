@@ -142,13 +142,9 @@ app.get('/weather/:latlon', async (request,response) =>{
   const latlon = request.params.latlon.split(',');//splitting the lat and lon variables passed in labeled as latlon above
   const lat = latlon[0];
   const lon = latlon[1];
-  // const lat = request.params.lat;
-  // const lon = request.params.lon;
   console.log("printing whats in latlon", lat,lon)
-  // const apiKey = 'bd3aebe7893aee9885545c96d06c993e'
+
   const weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exlude=hourly&appid=bd3aebe7893aee9885545c96d06c993e`
-  // const api_url = `https://api.openweathermap.org/data/2.5/onecall?lat=33.441792&lon=-94.037689&
-  // exclude=hourly,daily&appid=${apiKey}`
   const weather_response = await fetch(weather_url);
   const weather_data = await weather_response.json();
 
@@ -161,18 +157,18 @@ app.get('/weather/:latlon', async (request,response) =>{
     weather: weather_data,
     air_quality: aq_data
   };
-
+  console.log(data)
   response.json(data); //this is whats known as a proxy server, server is a proxy for open weather map
 
 
-  /*Can use something like promise.all to wait for a bunch of asynchronous events to complete, he
+  /*🔥Don't have to sequence one api call after another. Can use something like promise.all to wait for a bunch of asynchronous events to complete, he
   makes a video on this. Should probably look through*/
 
 
 
-  console.log("weather data: ",weather_data);
+  // console.log("weather data: ",weather_data);
 
-})
+});
 
   // database.push(data); insteading of saying database.push data, send we are relying on information sent from the client we can use insert
 
