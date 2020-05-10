@@ -146,7 +146,6 @@ app.get('/weather/:latlon', async (request,response) =>{
   const lat = latlon[0];
   const lon = latlon[1];
   console.log("printing whats in latlon", lat,lon)
-  // const api_key = 'bd3aebe7893aee9885545c96d06c993e';
   const api_key = process.env.API_KEY;
   const weather_url = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&exlude=hourly&appid=${api_key}`
   const weather_response = await fetch(weather_url);
