@@ -1,5 +1,8 @@
-{"lat":40.6847488,"lon":-73.97376,"emotion":"Happy ","timestamp":1589003514498,"_id":"bOrkQ83X28WJz4Vq"}
-{"lat":40.6847488,"lon":-73.97376,"emotion":"Sad","timestamp":1589001668085,"_id":"iknVdQCXlc2IsVSk"}
+{"emotion":"troubled","timestamp":1589065399981,"_id":"5gD3uVxGLTb6Z7Y6"}
+{"timestamp":1589065271001,"_id":"HOGYo9kGVRuykQfM"}
 {"lat":40.6847488,"lon":-73.97376,"emotion":"I feel great","timestamp":1589042466204,"_id":"Ph0MIEGGs0uyzLwq"}
-{"lat":40.694230499999996,"lon":-73.9828587,"emotion":"I feel confused","timestamp":1589042548857,"_id":"nfm7Y0aLTq4tZZD9"}
+{"lat":40.6847488,"lon":-73.97376,"emotion":"testing","timestamp":1589065570588,"_id":"UMaWESVGWH2oteYM"}
+{"lat":40.6847488,"lon":-73.97376,"emotion":"Happy ","timestamp":1589003514498,"_id":"bOrkQ83X28WJz4Vq"}
 {"lat":40.694230499999996,"lon":-73.9828587,"emotion":"I feel like I just want to leave","timestamp":1589042598881,"_id":"bUchkssiUsf3Z5B3"}
+{"lat":40.6847488,"lon":-73.97376,"emotion":"Sad","timestamp":1589001668085,"_id":"iknVdQCXlc2IsVSk"}
+{"lat":40.694230499999996,"lon":-73.9828587,"emotion":"I feel confused","timestamp":1589042548857,"_id":"nfm7Y0aLTq4tZZD9"}

@@ -278,3 +278,13 @@ Starting On Module 3
 3.1 API calls from Node.js (Weather data from Dark Sky) - Working with Data and APIs in JavaScript
 
 openweathermap api key = bd3aebe7893aee9885545c96d06c993e
+
+😄 was able to get this section working and query information from open weather map to my console
+=========================================================================================================================================================================================================================================
+
+3.2 Open Air Quality API in Node.js - Working with Data and APIs in JavaScript
+
+go to chrom developer tools -> three dot vertical menu in bottom left -> sensors
+sensors are useful to simulate if I'm holding a mobile device and moving around
+
+🔥 can test out weather data and location on map in different areas by going to the sensors option and selecting a different geolocation

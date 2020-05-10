@@ -1,17 +1,35 @@
 
-  const button = document.getElementById('submit');
-  button.addEventListener('click', async event => {
+  // const button = document.getElementById('submit');
+  // button.addEventListener('click', async event => {
+  let lat,lon;
 if('geolocation' in navigator){
   console.log('geolocation available');
-  navigator.geolocation.getCurrentPosition( async position => {
-    const lat = position.coords.latitude;
-    const lon = position.coords.longitude
-    document.getElementById('latitude').textContent = lat
-    document.getElementById('longitude').textContent = lon
-    var emotion = document.getElementById('Emotion').value;
+  navigator.geolocation.getCurrentPosition(async position => {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude
+    document.getElementById('latitude').textContent = lat.toFixed(2);
+    document.getElementById('longitude').textContent = lon.toFixed(2);
+    // const apiKey = 'bd3aebe7893aee9885545c96d06c993e'
+    const api_url = `weather/${lat},${lon}`;
+    // const api_url = `/weather`;
+    const response = await fetch(api_url);
+    const json = await response.json();
+    const weather = json.weather.current;
+    const air = json.air_quality;
+    document.getElementById('summary').textContent = weather[0].description;
+    document.getElementById('temperature').textContent = weather.temp;
+    console.log("is anything happening: ", json);
 
     console.log("This is your position: ",position)
+  });
 
+  }else{
+    console.log('geolocation not available');
+  }
+
+  const button = document.getElementById('submit');
+  button.addEventListener('click', async event => {
+    var emotion = document.getElementById('Emotion').value;
 
     const data = {lat,lon,emotion};
     const options = {
@@ -28,12 +46,12 @@ if('geolocation' in navigator){
 
 
 
-});//end of position function
+// });//end of position function
 
 
 
-}else{
-  console.log('geolocation not available');
-}
+// }else{
+//   console.log('geolocation not available');
+// }
 
 }); //end of button function

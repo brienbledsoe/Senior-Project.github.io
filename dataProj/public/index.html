@@ -18,7 +18,7 @@
 </style>
 <!-- <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.min.js"></script> -->
 
-  <title>Document</title>
+  <title>Weather</title>
   </head>
   <body>
 
@@ -29,10 +29,6 @@
     <h1 className="myMap">Geolocation</h1>
     <div><a href="/">post</a> | <a href="/logs">list</a></div>
 
-    <p>
-      latitude: <span id="latitude"></span>&deg;</br>
-      longitude: <span id="longitude"></span>&deg;</br>
-    </p>
 
      <div id="mapid"></div>
 
@@ -75,6 +71,16 @@
 
      </script>
 
+
+       <p>
+         latitude: <span id="latitude"></span>&deg;</br>
+         longitude: <span id="longitude"></span>&deg;</br>
+       </p>
+
+       <p>
+       The weather is <span id="summary"></span>
+       With a temperature of <span id="temperature"></span>&deg Fahrenheit.
+     </p>
      <br>
 
     <label for="Emotion">How do you feel?</label><br>
