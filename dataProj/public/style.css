@@ -9,3 +9,7 @@ p {
   background-color: #FFAAFF;
 
 }
+
+#airQuality{
+  display: block; 
+}
