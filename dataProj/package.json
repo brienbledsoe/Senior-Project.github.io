@@ -8,8 +8,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "example"
+    "example",
+    "heroku"
   ],
+
 
 
     "author": "Brien Bledsoe",
@@ -19,6 +21,9 @@
       "express": "^4.17.1",
       "nedb": "^1.8.0",
       "node-fetch": "^2.6.0"
+    },
+    "engines":{
+      "node": "10.x"
     }
 
 
