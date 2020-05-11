@@ -3,6 +3,7 @@ const express = require('express');
 line of code above. Basically like an import statement*/
 const Datastore = require('nedb'); //getting a function that creates a datastore or a databse
 const fetch = require('node-fetch');
+const port = process.env.PORT || 3000
 require('dotenv').config()/*going to tell this particular server to load
 anything thats in a file called dotenv into an enviornment variable*/
 // console.log(process.env); printing the api_key added to enviornment variables in the terminal
