@@ -306,3 +306,8 @@ creating .env file to have my api key and created .env_sample to show the people
 ❗❗❗ created .gitignore - git is version control software that keeps track of all of my files and various versions of them
   🔥 - what .gitignore does is, it tells git, don't keep track of this file, that whatever is in the file is our own
        personal secret information, that we only want on our local machine, and not to upload it when the code is pushed to github
+
+
+==========================================================================================================================================================================================================================================
+
+3.5 Web Application Deployment (Glitch and Heroku) - Working with Data and APIs in JavaScript

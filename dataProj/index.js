@@ -3,13 +3,14 @@ const express = require('express');
 line of code above. Basically like an import statement*/
 const Datastore = require('nedb'); //getting a function that creates a datastore or a databse
 const fetch = require('node-fetch');
-const port = process.env.PORT || 3000
+// const port = process.env.PORT || 3000
 require('dotenv').config()/*going to tell this particular server to load
 anything thats in a file called dotenv into an enviornment variable*/
 // console.log(process.env); printing the api_key added to enviornment variables in the terminal
 const app = express(); //creating the web application app in this line
 /*whole node library express is brought in and put inside a variable that we have called app*/
-app.listen(3000, () => console.log("listening at 3000")); /*Based on Dan Shiffman's diagram, when we create a server, the server want to start
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log("listening at 3000")); /*Based on Dan Shiffman's diagram, when we create a server, the server want to start
 listening for anybody who is trying to have access to the server. So we want to start listening for anyone
 who wants to connect
 
